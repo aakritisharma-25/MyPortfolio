@@ -17,7 +17,7 @@
     --input-focus: rgba(0, 0, 0, 0.4);
 }
 
-body.light-theme {
+html.light-theme, body.light-theme {
     --bg-dark: #f0f4f8;
     --bg-darker: #e2e8f0;
     --primary: #d53f8c;

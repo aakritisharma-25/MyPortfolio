@@ -534,13 +534,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check local storage for saved theme
     const savedTheme = localStorage.getItem('portfolio-theme');
     if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
         document.body.classList.add('light-theme');
         icon.classList.replace('fa-sun', 'fa-moon');
     }
     
     themeToggleBtn.addEventListener('click', () => {
+        document.documentElement.classList.toggle('light-theme');
         document.body.classList.toggle('light-theme');
-        const isLight = document.body.classList.contains('light-theme');
+        const isLight = document.documentElement.classList.contains('light-theme');
         
         if (isLight) {
             icon.classList.replace('fa-sun', 'fa-moon');

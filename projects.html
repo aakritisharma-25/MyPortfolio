@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Aakriti Sharma</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Canvas Background -->
+    <canvas id="starfield"></canvas>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <a href="index.html" class="logo">My<span>Portfolio</span></a>
+        <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="journey.html">Journey</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"><i class="fas fa-sun"></i></button></li>
+        </ul>
+    </header>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+        <div class="container reveal">
+            <h2 class="section-title">Major <span>Projects</span></h2>
+            <div class="projects-grid" style="margin-bottom: 60px;">
+                <div class="project-card" data-project="1" data-img="images/project1.png" data-github="https://github.com/aakritisharma-25/Heart_disease_prediction_model" data-live="https://heartdiseasepredictionmodel-cmm6acmwh9h4zwg7rxygcj.streamlit.app/" data-fulldesc="<span style='color: var(--tertiary); font-weight: bold;'>CardioPredict is a machine learning-based heart disease prediction system that analyzes patient health parameters to provide early risk assessment.</span><br><br>• Achieved ~90% accuracy using Random Forest, incorporating key medical features including ECG slope analysis to enhance prediction reliability.<br><br>• Solves the problem of delayed and manual risk assessment by providing instant, data-driven predictions, helping in early identification of potential heart disease.<br><br>• <strong>Future Scope:</strong> Can be extended with real-time health data integration, advanced models, and deployment as a full-scale healthcare application.<br><br><strong>Tech Stack:</strong> Python, Streamlit, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn">
+                    <div class="project-img"><img src="images/project1.png" alt="CardioPredict"></div>
+                    <div class="project-info">
+                        <h3>CardioPredict</h3>
+                        <p>Machine Learning model for heart disease prediction.</p>
+                        <a href="#" class="btn-small project-btn">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card" data-project="2" data-img="images/project2.png" data-github="https://github.com/aakritisharma-25/metrobooking" data-live="https://metrobooking-ff7zr6uux-aakritisharma-25s-projects.vercel.app/" data-fulldesc="<span style='color: var(--tertiary); font-weight: bold;'>MetroBook is a full-stack metro ticket booking system that computes optimal routes and enables seamless ticket booking with secure authentication and real-time visualization.</span><br><br>• Implemented Dijkstra’s Algorithm with transfer penalty, enabling optimal route computation with multi-line support and real-time map visualization, improving route efficiency and user experience.<br><br>• Solves the problem of inefficient route planning and ticket booking by providing a secure, end-to-end system with JWT authentication and QR-based ticket generation, ensuring reliability and data integrity.<br><br>• <strong>Future Scope:</strong> Can be scaled with real-time metro data, mobile app integration, and advanced features like fare optimization and live tracking.<br><br><strong>Tech Stack:</strong> Java, Spring Boot, Spring Security, JWT, PostgreSQL, Hibernate, HTML, CSS, JavaScript, Leaflet.js, Maven">
+                    <div class="project-img"><img src="images/project2.png" alt="MetroBook"></div>
+                    <div class="project-info">
+                        <h3>MetroBook</h3>
+                        <p>Metro booking service app powered by Java Backend.</p>
+                        <a href="#" class="btn-small project-btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Minor <span>Projects</span></h2>
+            <div class="projects-grid" style="grid-template-columns: minmax(300px, 450px); justify-content: center;">
+                <div class="project-card" data-project="3" data-img="images/project3.png" data-github="https://github.com/aakritisharma-25/Virtual-Exhibition-Platform" data-live="https://virtual-exhibition-platform-bgosqgaufhnywtxjic7yzu.streamlit.app/" data-fulldesc="<span style='color: var(--tertiary); font-weight: bold;'>Cluster Exhibit is a machine learning-based virtual exhibition platform that organizes and visualizes data using K-Means clustering through an interactive Streamlit interface.</span><br><br>• Achieved Precision: 0.67, Recall: 0.80, F1 Score: 0.73, effectively clustering similar exhibition items into meaningful groups for better data interpretation.<br><br>• Solves the problem of unstructured and hard-to-analyze data by automatically grouping similar items, making exploration and pattern discovery easier.<br><br>• <strong>Future Scope:</strong> Can be enhanced with advanced clustering techniques, real-time data uploads, and improved visualization dashboards for deeper insights.<br><br><strong>Tech Stack:</strong> Python, K-Means Clustering, Streamlit, Pandas, NumPy, Matplotlib, Seaborn">
+                    <div class="project-img"><img src="images/project3.png" alt="ClusterExhibit"></div>
+                    <div class="project-info">
+                        <h3>ClusterExhibit</h3>
+                        <p>Virtual Exhibition Platform (K-Means + Streamlit)</p>
+                        <a href="#" class="btn-small project-btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--nav-bg); border-top: 1px solid var(--glass-border); padding: 80px 10% 40px; margin-top: auto; position: relative; z-index: 10;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; margin-bottom: 60px;">
+            
+            <!-- Brand Column -->
+            <div style="flex: 2; min-width: 300px; display: flex; flex-direction: column; gap: 20px;">
+                <a href="index.html" class="logo" style="margin-bottom: 0; font-size: 2.2rem;">Aakriti<span>Sharma</span></a>
+                <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; max-width: 400px;">
+                    Emerging AI Systems Developer &amp; Creative Engineer dedicated to building highly impactful, scalable computational experiences.
+                </p>
+            </div>
+
+            <!-- Links Column 1: Navigation -->
+            <div style="flex: 1; min-width: 150px; display: flex; flex-direction: column; gap: 15px;">
+                <h4 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 10px; font-family: 'Space Grotesk', sans-serif;">Navigation</h4>
+                <a href="index.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'">Home</a>
+                <a href="projects.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'">Projects</a>
+                <a href="journey.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'">Academic Journey</a>
+                <a href="resume.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'">Resume</a>
+            </div>
+
+            <!-- Links Column 2: Resources -->
+            <div style="flex: 1; min-width: 150px; display: flex; flex-direction: column; gap: 15px;">
+                <h4 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 10px; font-family: 'Space Grotesk', sans-serif;">Resources</h4>
+                <a href="certificates.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text-muted)'">Certificates</a>
+                <a href="skills.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text-muted)'">Tech Stack</a>
+                <a href="https://github.com/aakritisharma-25" target="_blank" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text-muted)'">Open Source</a>
+            </div>
+
+            <!-- Links Column 3: Connect -->
+            <div style="flex: 1; min-width: 150px; display: flex; flex-direction: column; gap: 15px;">
+                <h4 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 10px; font-family: 'Space Grotesk', sans-serif;">Connect</h4>
+                <a href="contact.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">Contact Me</a>
+                <a href="mailto:aakritisharma627@gmail.com" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">Email</a>
+                <a href="https://www.linkedin.com/in/aakriti-sharma-92b3a2389/" target="_blank" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">LinkedIn</a>
+            </div>
+            
+        </div>
+
+        <!-- Bottom Strip -->
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; flex-wrap: wrap; gap: 20px;">
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">&copy; 2026 Aakriti Sharma. All rights reserved.</p>
+            
+            <div style="display: flex; gap: 20px;">
+                <a href="https://github.com/aakritisharma-25" target="_blank" style="color: var(--text-muted); font-size: 1.3rem; transition: color 0.3s;" onmouseover="this.style.color='var(--text-main)'" onmouseout="this.style.color='var(--text-muted)'"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/aakriti-sharma-92b3a2389/" target="_blank" style="color: var(--text-muted); font-size: 1.3rem; transition: color 0.3s;" onmouseover="this.style.color='#0077b5'" onmouseout="this.style.color='var(--text-muted)'"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:aakritisharma627@gmail.com" style="color: var(--text-muted); font-size: 1.3rem; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

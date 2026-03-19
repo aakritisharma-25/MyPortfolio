@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me | Aakriti Sharma</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Canvas Background -->
+    <canvas id="starfield"></canvas>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <a href="index.html" class="logo">My<span>Portfolio</span></a>
+        <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="journey.html">Journey</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"><i class="fas fa-sun"></i></button></li>
+        </ul>
+    </header>
+
+    <!-- Contact -->
+    <section id="contact" class="section dark-bg">
+        <div class="container reveal">
+            <h2 class="section-title">Contact <span>Me</span></h2>
+            <div class="contact-container">
+                
+                <!-- Left Side: Contact Info & Socials -->
+                <div class="contact-info" style="display: flex; flex-direction: column; gap: 20px;">
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; margin-bottom: 20px; color: var(--secondary);">Connect Globally</h3>
+                    
+                    <!-- Name Node -->
+                    <div class="info-item" style="flex-direction: column; text-align: center; gap: 10px; background: rgba(255,255,255,0.02); padding: 30px; border-radius: 15px; border: 1px solid var(--glass-border);">
+                        <i class="fas fa-user" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; height: auto; width: auto; background: none;"></i>
+                        <span style="font-size: 1.4rem; font-family: 'Space Grotesk', sans-serif; font-weight: bold; color: var(--text-main);">Aakriti Sharma</span>
+                        <span style="font-size: 0.9rem; color: var(--text-muted);">ML Enthusiast</span>
+                    </div>
+
+                    <a href="mailto:aakritisharma627@gmail.com" class="info-item" style="display: flex; align-items: center; gap: 20px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 15px; border: 1px solid var(--glass-border); text-decoration: none; margin-bottom: 0;">
+                        <i class="fas fa-envelope" style="font-size: 1.8rem; color: var(--secondary); display: flex; justify-content: center; align-items: center; background: none;"></i>
+                        <div>
+                            <span style="display: block; font-size: 1.1rem; font-weight: bold; color: var(--text-main);">Email Address</span>
+                            <span style="font-size: 0.9rem; color: var(--text-muted);">aakritisharma627@gmail.com</span>
+                        </div>
+                    </a>
+
+                    <a href="tel:+918847264770" class="info-item" style="display: flex; align-items: center; gap: 20px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 15px; border: 1px solid var(--glass-border); text-decoration: none; margin-bottom: 0;">
+                        <i class="fas fa-phone-alt" style="font-size: 1.8rem; color: var(--accent); display: flex; justify-content: center; align-items: center; background: none;"></i>
+                        <div>
+                            <span style="display: block; font-size: 1.1rem; font-weight: bold; color: var(--text-main);">Phone Number</span>
+                            <span style="font-size: 0.9rem; color: var(--text-muted);">+91 88472 64770</span>
+                        </div>
+                    </a>
+
+                    <div style="display: flex; gap: 20px; margin-top: 10px;">
+                        <a href="https://www.linkedin.com/in/aakriti-sharma-92b3a2389/" target="_blank" class="info-item" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 15px; border: 1px solid var(--glass-border); text-decoration: none; margin-bottom: 0;">
+                            <i class="fab fa-linkedin" style="font-size: 2rem; color: #0077b5; background: none; width: auto; height: auto;"></i>
+                            <span style="font-size: 1rem; font-weight: bold; color: var(--text-main);">LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/aakritisharma-25" target="_blank" class="info-item" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 15px; border: 1px solid var(--glass-border); text-decoration: none; margin-bottom: 0;">
+                            <i class="fab fa-github" style="font-size: 2rem; color: #ffffff; background: none; width: auto; height: auto;"></i>
+                            <span style="font-size: 1rem; font-weight: bold; color: var(--text-main);">GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side: Contact Form -->
+                <div class="contact-form-wrapper" style="background: rgba(255,255,255,0.02); padding: 40px; border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);">
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 30px; color: var(--primary);">Send a Message</h3>
+                    <form action="https://formsubmit.co/aakritisharma627@gmail.com" method="POST" class="contact-form" style="display: flex; flex-direction: column; gap: 20px;">
+                        
+                        <!-- Honeypot for preventing spam -->
+                        <input type="text" name="_honey" style="display:none">
+                        
+                        <!-- Disable Captcha screen -->
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <div class="input-group">
+                            <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 15px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 10px; color: #fff; font-family: 'Manrope', sans-serif;" />
+                        </div>
+                        <div class="input-group">
+                            <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 15px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 10px; color: #fff; font-family: 'Manrope', sans-serif;" />
+                        </div>
+                        <div class="input-group">
+                            <textarea name="message" placeholder="Your Message" rows="6" required style="width: 100%; padding: 15px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 10px; color: #fff; font-family: 'Manrope', sans-serif; resize: none;"></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn submit-btn" style="padding: 15px; border-radius: 10px; border: none; font-size: 1.1rem; display: flex; justify-content: center; gap: 10px; width: 100%; cursor: pointer;">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--nav-bg); border-top: 1px solid var(--glass-border); padding: 80px 10% 40px; margin-top: auto; position: relative; z-index: 10;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; margin-bottom: 60px;">
+            
+            <!-- Brand Column -->
+            <div style="flex: 2; min-width: 300px; display: flex; flex-direction: column; gap: 20px;">
+                <a href="index.html" class="logo" style="margin-bottom: 0; font-size: 2.2rem;">Aakriti<span>Sharma</span></a>
+                <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; max-width: 400px;">
+                    Emerging AI Systems Developer &amp; Creative Engineer dedicated to building highly impactful, scalable computational experiences.
+                </p>
+            </div>
+
+            <!-- Links Column 1: Navigation -->
+            <div style="flex: 1; min-width: 150px; display: flex; flex-direction: column; gap: 15px;">
+                <h4 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 10px; font-family: 'Space Grotesk', sans-serif;">Navigation</h4>
+                <a href="index.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'">Home</a>
+                <a href="projects.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'">Projects</a>
+                <a href="journey.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'">Academic Journey</a>
+                <a href="resume.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'">Resume</a>
+            </div>
+
+            <!-- Links Column 2: Resources -->
+            <div style="flex: 1; min-width: 150px; display: flex; flex-direction: column; gap: 15px;">
+                <h4 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 10px; font-family: 'Space Grotesk', sans-serif;">Resources</h4>
+                <a href="certificates.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text-muted)'">Certificates</a>
+                <a href="skills.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text-muted)'">Tech Stack</a>
+                <a href="https://github.com/aakritisharma-25" target="_blank" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text-muted)'">Open Source</a>
+            </div>
+
+            <!-- Links Column 3: Connect -->
+            <div style="flex: 1; min-width: 150px; display: flex; flex-direction: column; gap: 15px;">
+                <h4 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 10px; font-family: 'Space Grotesk', sans-serif;">Connect</h4>
+                <a href="contact.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">Contact Me</a>
+                <a href="mailto:aakritisharma627@gmail.com" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">Email</a>
+                <a href="https://www.linkedin.com/in/aakriti-sharma-92b3a2389/" target="_blank" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">LinkedIn</a>
+            </div>
+            
+        </div>
+
+        <!-- Bottom Strip -->
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; flex-wrap: wrap; gap: 20px;">
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">&copy; 2026 Aakriti Sharma. All rights reserved.</p>
+            
+            <div style="display: flex; gap: 20px;">
+                <a href="https://github.com/aakritisharma-25" target="_blank" style="color: var(--text-muted); font-size: 1.3rem; transition: color 0.3s;" onmouseover="this.style.color='var(--text-main)'" onmouseout="this.style.color='var(--text-muted)'"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/aakriti-sharma-92b3a2389/" target="_blank" style="color: var(--text-muted); font-size: 1.3rem; transition: color 0.3s;" onmouseover="this.style.color='#0077b5'" onmouseout="this.style.color='var(--text-muted)'"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:aakritisharma627@gmail.com" style="color: var(--text-muted); font-size: 1.3rem; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

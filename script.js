@@ -97,52 +97,75 @@ if (achievementsSection) {
 }
 
 // 4. Advanced GSAP Animations
+// Splitting Text Utility for creative reveals
+function splitToSpans(selector) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(el => {
+        const text = el.innerText;
+        el.innerHTML = '';
+        text.split('').forEach(char => {
+            const span = document.createElement('span');
+            span.innerText = char === ' ' ? '\u00A0' : char;
+            span.style.display = 'inline-block';
+            span.classList.add('split-char');
+            el.appendChild(span);
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof gsap === 'undefined') return;
 
-    // Hero Section Reveal
-    const heroElements = document.querySelectorAll('.hero-content > h3, .hero-content > h1, .hero-content > h2, .hero-content > p, .hero-content > .cta-buttons, .hero-content > .social-icons');
+    // Creative text split for Greeting
+    splitToSpans('.greeting');
+    gsap.from('.greeting .split-char', {
+        y: 30, opacity: 0, rotationX: -90, duration: 0.8, stagger: 0.05, ease: "back.out(1.5)", delay: 0.4
+    });
+
+    // Creative 3D Rotation Text Reveal for Name
+    const nameElement = document.querySelector('.name');
+    if (nameElement) {
+        gsap.fromTo(nameElement, 
+            { opacity: 0, rotationX: -90, y: 50, transformOrigin: "50% 100%" },
+            { opacity: 1, rotationX: 0, y: 0, duration: 1.5, ease: "elastic.out(1, 0.4)", delay: 0.8 }
+        );
+    }
+
+    // Hero Section Content Reveal
+    const heroElements = document.querySelectorAll('.hero-content > h3:not(.greeting), .hero-content > h2, .hero-content > p, .hero-content > .cta-buttons, .hero-content > .social-icons');
     if (heroElements.length > 0) {
         gsap.from(heroElements, {
-            y: 50, opacity: 0, duration: 1, stagger: 0.15, ease: "power4.out", delay: 0.6 // after page fade-in
+            y: 50, opacity: 0, duration: 1, stagger: 0.15, ease: "power4.out", delay: 1.1
         });
     }
 
     const heroImage = document.querySelector('.hero-image');
     if (heroImage) {
-        gsap.from(heroImage, { x: 50, opacity: 0, duration: 1.2, ease: "power4.out", delay: 1 });
+        gsap.from(heroImage, { scale: 0.8, opacity: 0, rotation: 5, duration: 1.5, ease: "back.out(1.2)", delay: 1.3 });
     }
 
-    // Dynamic Card Reveal on Scroll
+    // Advanced Staggered 3D Card Reveal on Scroll
     const items = document.querySelectorAll('.skill-card, .project-card, .cert-item, .achievement-box, .timeline-content, .contact-container');
     items.forEach((item, i) => {
-        gsap.from(item, {
-            scrollTrigger: {
-                trigger: item,
-                start: "top 90%",
-                toggleActions: "play none none reverse"
-            },
-            y: 60,
-            opacity: 0,
-            duration: 0.8,
-            ease: "back.out(1.5)"
-        });
+        gsap.fromTo(item, 
+            { y: 80, opacity: 0, rotationY: 15, scale: 0.9 },
+            {
+                scrollTrigger: { trigger: item, start: "top 85%", toggleActions: "play none none reverse" },
+                y: 0, opacity: 1, rotationY: 0, scale: 1, duration: 1, ease: "power4.out"
+            }
+        );
     });
 
-    // Section Titles GSAP
+    // Elegant Clip-Path Text Reveal for Section Titles
     const titles = document.querySelectorAll('.section-title');
     titles.forEach(title => {
-        gsap.from(title, {
-            scrollTrigger: {
-                trigger: title,
-                start: "top 85%",
-                toggleActions: "play none none reverse"
-            },
-            scale: 0.8,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out"
-        });
+        gsap.fromTo(title, 
+            { clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)", opacity: 0, x: -30 },
+            {
+                scrollTrigger: { trigger: title, start: "top 80%", toggleActions: "play none none reverse" },
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", opacity: 1, x: 0, duration: 1.2, ease: "power4.out"
+            }
+        );
     });
 });
 
@@ -164,10 +187,10 @@ if (canvas && typeof THREE !== 'undefined') {
     const posArray = new Float32Array(particlesCount * 3);
     const colorsArray = new Float32Array(particlesCount * 3);
 
-    const c1 = new THREE.Color('#ff007f'); // Neon Pink
-    const c2 = new THREE.Color('#00f2fe'); // Bright Cyan
-    const c3 = new THREE.Color('#bc13fe'); // Electric Purple
-    const c4 = new THREE.Color('#ffffff'); // White stars
+    const c1 = new THREE.Color('#eff8e2'); 
+    const c2 = new THREE.Color('#cecfc7'); 
+    const c3 = new THREE.Color('#ada8b6'); 
+    const c4 = new THREE.Color('#23022e'); 
 
     for (let i = 0; i < particlesCount * 3; i += 3) {
         // Expand galaxy limits
@@ -551,5 +574,73 @@ document.addEventListener('DOMContentLoaded', () => {
             icon.classList.replace('fa-moon', 'fa-sun');
             localStorage.setItem('portfolio-theme', 'dark');
         }
+    });
+});
+
+// 11. Interactive Mascot Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const mascotBubble = document.getElementById('mascot-bubble');
+    const mascotAvatar = document.getElementById('mascot-avatar');
+    if (!mascotBubble || !mascotAvatar) return;
+
+    const tourMessages = {
+        'home': "Hi there! 👋 I'm your digital guide. Welcome to Aakriti's portfolio!",
+        'skills-preview': "These are the super skills powering the magic behind the screen! ⚡",
+        'projects-preview': "Check out these incredible projects! 🚀 Real-world problem solving right here!",
+        'quick-links': "Want to dive deeper? Check out the resume, certificates, or contact page! 📂"
+    };
+
+    let bubbleTimeout;
+    const showMessage = (text, duration = 4000) => {
+        mascotBubble.textContent = text;
+        mascotBubble.classList.add('active');
+        clearTimeout(bubbleTimeout);
+        if (duration) {
+            bubbleTimeout = setTimeout(() => mascotBubble.classList.remove('active'), duration);
+        }
+    };
+
+    // Initial greeting delay
+    setTimeout(() => showMessage(tourMessages['home']), 2000);
+
+    // Click interaction
+    const clickMessages = [
+        "Beep boop! You found me! 🤖",
+        "Aakriti is currently open to new opportunities! 💼",
+        "Did you know? I love Machine Learning! 🧠",
+        "Feel free to connect on LinkedIn! 🔗"
+    ];
+    mascotAvatar.addEventListener('click', () => {
+        if (typeof gsap !== 'undefined') {
+            gsap.fromTo(mascotAvatar, { scale: 0.8, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" });
+        }
+        const randomMsg = clickMessages[Math.floor(Math.random() * clickMessages.length)];
+        showMessage(randomMsg);
+    });
+
+    // Scroll Observer for Tour
+    // Check which sections are mostly in view
+    const observerOptions = {
+        root: null,
+        rootMargin: '-40% 0px -40% 0px', // Trigger when section is in the middle 20% of viewport
+        threshold: 0
+    };
+    let lastSection = 'home';
+    const mascotObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.id;
+                if (tourMessages[sectionId] && sectionId !== lastSection) {
+                    lastSection = sectionId;
+                    showMessage(tourMessages[sectionId]);
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe sections
+    ['home', 'skills-preview', 'projects-preview', 'quick-links'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) mascotObserver.observe(el);
     });
 });
